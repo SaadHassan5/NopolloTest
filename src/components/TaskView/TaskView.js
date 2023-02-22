@@ -20,6 +20,9 @@ const TaskView = ({ props, sty = {}, tasks = [], setTasks,onGetAll }) => {
         titleTxt: {
             ...GlobalStyles.regularTxt, fontSize: 16
         },
+        deleteBtn:{
+            ...GlobalStyles?.card, ...GlobalStyles.shadow, borderRadius: WP(2) 
+        },
         taskView: {
             ...GlobalStyles?.row, justifyContent: "space-between", ...GlobalStyles.card,
             borderRadius: WP(10)
@@ -89,7 +92,7 @@ const TaskView = ({ props, sty = {}, tasks = [], setTasks,onGetAll }) => {
                             <Text style={{ ...Styles.titleTxt, color: item?.completed == 1 ? palette?.purple : palette?.black, paddingHorizontal: WP(2) }}>{item?.title}</Text>
                         </TouchableOpacity>
                         {item?.showDel ?
-                            <TouchableOpacity style={{ ...GlobalStyles?.card, ...GlobalStyles.shadow, borderRadius: WP(2) }} onPress={() => { onDeleteTodo(item, index) }}>
+                            <TouchableOpacity style={{ ...Styles.deleteBtn}} onPress={() => { onDeleteTodo(item, index) }}>
                                 <Text style={{ ...GlobalStyles.regularTxt, color: 'red' }}>Delete</Text>
                             </TouchableOpacity>
                             :
@@ -104,8 +107,8 @@ const TaskView = ({ props, sty = {}, tasks = [], setTasks,onGetAll }) => {
                 <TextInput value={title} placeholderTextColor={palette?.labelGray} style={{ paddingHorizontal: WP(3), ...GlobalStyles.regularTxt }} onChangeText={(e) => { setTitle(e) }} placeholder={'Add your todo...'} />
             </View>
             {title?.trim() != "" &&
-                <TouchableOpacity style={{ ...GlobalStyles?.card, ...GlobalStyles.shadow, borderRadius: WP(2), marginTop: HP(3), alignSelf: 'center' }} onPress={() => { onCreate() }}>
-                    <Text style={{ ...GlobalStyles.regularTxt, color: 'red' }}>Save</Text>
+                <TouchableOpacity style={{ ...Styles.deleteBtn, marginTop: HP(3), alignSelf: 'center' }} onPress={() => { onCreate() }}>
+                    <Text style={{ ...GlobalStyles.boldTxt,paddingHorizontal:WP(5), color: 'red' }}>Save</Text>
                 </TouchableOpacity>
             }
         </View>
