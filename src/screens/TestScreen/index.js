@@ -11,6 +11,7 @@ import { NopolloStyles as Styles } from './styles';
 const TestScreen = () => {
     const [allTodos, setAllTodos] = useState([])
     const [completedTasks, setCompletedTasks] = useState(0)
+    const [progessed, setProgressed] = useState(0)
     useEffect(() => {
         getAllTodos();
     }, [])
@@ -23,13 +24,15 @@ const TestScreen = () => {
                 count = count + 1;
         })
         setCompletedTasks(count)
+        setProgressed(Math?.abs(count / res?.length).toFixed(1))
+
     }
     return (
         <SafeAreaView style={GlobalStyles.container}>
             {/* Fixed */}
-            <ScrollView style={{flex:1,}} contentContainerStyle={{paddingVertical:HP(10), ...Styles.progressView }}>
+            <ScrollView style={{ flex: 1, }} contentContainerStyle={{ paddingVertical: HP(10), ...Styles.progressView }}>
                 <View style={{}}>
-                    <ProgressBarView showTasks={completedTasks} tasks={completedTasks/allTodos?.length} />
+                    <ProgressBarView showTasks={completedTasks} tasks={progessed} />
                     <View>
                         <Text style={{ ...Styles.taskTxt }}>Tasks</Text>
                         <View>

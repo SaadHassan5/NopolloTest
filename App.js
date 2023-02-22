@@ -5,9 +5,10 @@ import TestScreen from './src/screens/TestScreen';
 
 const App=(props)=>{
   return(
-    <NavigationContainer>
-      <StackNavigator />
-    </NavigationContainer>
+    // <NavigationContainer>
+    //   <StackNavigator />
+    // </NavigationContainer>
+    <TestScreen />
   )
 }
 export default App;

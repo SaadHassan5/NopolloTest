@@ -24,7 +24,7 @@ const ProgressBarView = ({ props, sty = {},tasks=0,showTasks=0 }) => {
     return (
         <View style={{ ...Styles.progressView }}>
             <Text style={{ ...Styles.progressTxt}}>Progress</Text>
-            <ProgressBar progress={tasks} style={{ width: WP(80), height: HP(1), borderRadius: WP(2) }} color={palette?.white} />
+            <ProgressBar progress={tasks} style={{ width: WP(80), height: HP(1), borderRadius: WP(2) }}  color={palette?.white} />
             <Text style={{ ...Styles.taskTxt}}>{showTasks} Completed</Text>
         </View>
     )
