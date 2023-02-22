@@ -17,15 +17,16 @@ const TestScreen = () => {
     const getAllTodos = async () => {
         const res = await API_Calls.For_GET(ApiConsts.getAll);
         setAllTodos(res)
-        let temp = 0;
+        let count = 0;
         res?.map((k) => {
             if (k?.completed == 1)
-                temp = temp + 1;
+                count = count + 1;
         })
-        setCompletedTasks(temp)
+        setCompletedTasks(count)
     }
     return (
         <SafeAreaView style={GlobalStyles.container}>
+            {/* Fixed */}
             <ScrollView style={{flex:1,}} contentContainerStyle={{paddingVertical:HP(10), ...Styles.progressView }}>
                 <View style={{}}>
                     <ProgressBarView showTasks={completedTasks} tasks={completedTasks/allTodos?.length} />
